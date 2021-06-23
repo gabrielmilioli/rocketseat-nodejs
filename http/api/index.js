@@ -16,7 +16,7 @@ function writeFile(callback) {
 }
 
 http.createServer((req, res) => {
-  res.writeHead(200, { 'Access-Controls-Allow-Origin': '*' })
+  res.writeHead(200, { 'Access-Control-Allow-Origin': '*' })
 
   var baseURL = 'http://' + req.headers.host + '/';
   var myURL = new URL(req.url, baseURL);
