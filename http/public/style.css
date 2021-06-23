@@ -15,7 +15,9 @@ body {
 .container {
   width: 80%;
   max-width: 400px;
-  margin: auto;
+  margin: 24px auto;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -58,6 +60,7 @@ a {
   text-decoration: none;
   padding: 16px 0;
   font-size: 1.8rem;
+  width: 100%;
 }
 
 a:hover {
@@ -70,4 +73,37 @@ li:first-child, li:last-child {
 
 li span {
   cursor: pointer;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  line-height: 6px;
+  padding: 5px;
+  background-color: #3e2b7d;
+  color: #fff;
+  transition: all 0.2s;
+}
+
+li span:hover {
+  background-color: #322266;
+  transition: all 0.2s;
+}
+
+button {
+  color: #fff;
+  padding: 8px 16px;
+  border: 1px solid #3e2b7d;
+  background-color: #3e2b7d;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 16px;
+  text-transform: uppercase;
+}
+
+button:hover {
+  border-color: #322266;
+  background-color: #322266;
+  transition: all 0.2s;
 }

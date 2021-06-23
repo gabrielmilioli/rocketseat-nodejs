@@ -1,18 +1,19 @@
-const ul = document.querySelector("ul")
-const input = document.querySelector("input")
+const ul = document.querySelector('ul')
+const inputName = document.getElementById('name')
+const inputUrl = document.getElementById('url')
 const form = document.querySelector('form')
 const URL_API = 'http://localhost:3000/'
 
 function addElement({ name, url }) {
   const li = document.createElement('li')
-  const a = document.createElement("a")
-  const trash = document.createElement("span")
+  const a = document.createElement('a')
+  const trash = document.createElement('span')
 
   a.href = url
   a.innerHTML = name
-  a.target = "_blank"
+  a.target = '_blank'
 
-  trash.innerHTML = "x"
+  trash.innerHTML = 'x'
   trash.onclick = () => removeElement(trash, { name, url })
 
   li.append(a)
@@ -27,27 +28,26 @@ function removeElement(el, { name, url }) {
   }
 }
 
-form.addEventListener("submit", (event) => {
+form.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  let { value } = input
+  const name = inputName.value
+  const url = inputUrl.value
 
-  if (!value)
-    return alert('Preencha o campo')
-
-  const [name, url] = value.split(",")
+  if (!name || !url)
+    return alert('Preencha os campos')
 
   if (!url)
-    return alert('formate o texto da maneira correta')
+    return alert('Preencha a url')
 
   if (!/^http/.test(url))
-    return alert("Digite a url da maneira correta")
+    return alert('Digite a url da maneira correta')
 
   addElement({ name, url })
-  
   add({ name, url })
 
-  input.value = ""
+  inputName.value = ''
+  inputUrl.value = ''
 })
 
 async function load() {
